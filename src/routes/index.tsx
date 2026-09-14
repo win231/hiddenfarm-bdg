@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import heroImg from "@/assets/hero-garden-cafe.jpg";
-import suasanaSeating from "@/assets/suasana-seating.jpg";
-import suasanaPlants from "@/assets/suasana-plants.jpg";
-import suasanaCorner from "@/assets/suasana-corner.jpg";
-import menuCoffee from "@/assets/menu-coffee.jpg";
-import menuPastry from "@/assets/menu-pastry.jpg";
-import menuMocktail from "@/assets/menu-mocktail.jpg";
+import heroAsset from "@/assets/hidden-farm-night.jpg.asset.json";
+import suasanaFruitAsset from "@/assets/hidden-farm-fruit-station.jpg.asset.json";
+import suasanaLibraryAsset from "@/assets/hidden-farm-library.jpg.asset.json";
+import suasanaCatAsset from "@/assets/hidden-farm-cat.jpg.asset.json";
+import buburAsset from "@/assets/bubur-kacang-hijau-croffle.jpg.asset.json";
+import smoothieAsset from "@/assets/berry-smoothie-bowls.jpg.asset.json";
+import riceBowlAsset from "@/assets/comfort-rice-bowls.jpg.asset.json";
 
 const MAPS_LINK =
   "https://www.google.com/maps/search/?api=1&query=Hidden+Farm+Cafe+Bukit+Pakar+Utara+Cimenyan+Bandung";
@@ -151,10 +151,10 @@ function Index() {
           <div className="relative">
             <div className="relative w-full overflow-hidden rounded-[2rem] border border-white/60 bg-sage/30 shadow-2xl shadow-forest/15 outline-1 -outline-offset-1 outline-black/5 aspect-[9/10]">
               <img
-                src={heroImg}
+                 src={heroAsset.url}
                 width={1080}
                 height={1200}
-                alt="Teras kafe kebun Hidden Farm Cafe dengan meja kayu dan tanaman hijau di Bukit Pakar Bandung"
+                 alt="Area duduk outdoor Hidden Farm Cafe pada malam hari dengan meja kayu, pepohonan, dan lampu hangat"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -182,16 +182,17 @@ function Index() {
               Oasis Hijau di Tengah Perbukitan
             </h2>
             <p className="mt-4 text-base leading-relaxed text-forest/70">
-              Tepi kebun yang rimbun, udara pegunungan yang segar, dan suasana
-              rustic yang hangat. Area duduk outdoor kami ramah hewan peliharaan —
-              tempat sempurna untuk melepaskan penat sejenak.
+               Di antara rimbunnya kebun dan sejuknya udara pegunungan, temukan
+               kehangatan sudut baca bambu, singgah di stasiun buah rustic yang
+               penuh warna, lalu bersantai ditemani kucing-kucing penghuni yang
+               ramah—sebuah rumah kecil untuk jeda yang tenang dan berkesan.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
-              { src: suasanaSeating, alt: "Area duduk outdoor kayu dikelilingi pakis dan lampu tidur", cls: "" },
-              { src: suasanaPlants, alt: "Tanaman hias tropis dan daun monstera di bawah cahaya hangat", cls: "sm:mt-8" },
-              { src: suasanaCorner, alt: "Sudut rustic dengan kursi rattan dan cangkir keramik", cls: "" },
+               { src: suasanaFruitAsset.url, alt: "Stasiun pemesanan buah rustic dari kayu dan bambu di Hidden Farm Cafe", cls: "" },
+               { src: suasanaLibraryAsset.url, alt: "Sudut perpustakaan bambu dengan rak buku, gitar, dan pemandangan kebun", cls: "sm:mt-8" },
+               { src: suasanaCatAsset.url, alt: "Kucing penghuni Hidden Farm Cafe tidur tenang di samping sebuah buku", cls: "" },
             ].map((img) => (
               <div
                 key={img.src}
@@ -227,22 +228,19 @@ function Index() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               {
-                src: menuCoffee,
-                title: "Signature Iced Coffee",
-                price: "Rp 32k",
-                desc: "Kopi susu aren khas Hidden Farm, manis alami dan creamy.",
+                 src: buburAsset.url,
+                 title: "Bubur Kacang Hijau with Croffle",
+                 desc: "Perpaduan unik kehangatan bubur kacang hijau gurih dan manisnya croffle renyah dengan sentuhan es krim lembut.",
               },
               {
-                src: menuPastry,
-                title: "Artisan Pastry & Croissant",
-                price: "Rp 28k",
-                desc: "Pastry renyah yang pas menyertai secangkir kopi hangat.",
+                 src: smoothieAsset.url,
+                 title: "Healthy Berry Smoothie Bowl",
+                 desc: "Kesegaran racikan buah berry alami bertabur topping pisang manis dan biji-bijian bernutrisi.",
               },
               {
-                src: menuMocktail,
-                title: "Refreshing Botanical Mocktail",
-                price: "Rp 35k",
-                desc: "Racikan buah segar dan herba, segar dan menenangkan.",
+                 src: riceBowlAsset.url,
+                 title: "Special Comfort Rice Bowl",
+                 desc: "Sajian nasi hangat lezat khas rumah dengan lauk kaya rasa untuk menemani momen santap siangmu.",
               },
             ].map((item) => (
               <article
@@ -257,13 +255,10 @@ function Index() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="mt-4 flex items-start justify-between gap-3">
+                 <div className="mt-4">
                   <h3 className="font-display text-lg font-medium leading-tight">
                     {item.title}
                   </h3>
-                  <span className="shrink-0 rounded-full bg-forest/10 px-3 py-1 text-sm font-semibold text-forest">
-                    {item.price}
-                  </span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-forest/65">
                   {item.desc}
